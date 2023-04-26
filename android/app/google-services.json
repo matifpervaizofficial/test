@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "817983335636",
+    "project_id": "mandala-app-1f445",
+    "storage_bucket": "mandala-app-1f445.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:817983335636:android:15f292dcefc2f9b5ef5f41",
+        "android_client_info": {
+          "package_name": "com.example.mandala"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "817983335636-gdq463kjfsmvsb9onl71ltgplmm0anl9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOIiAmsTSka8LCxszCj6AgleiPiq2uZNg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "817983335636-gdq463kjfsmvsb9onl71ltgplmm0anl9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
