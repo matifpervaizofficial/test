@@ -153,7 +153,7 @@ class _SignupPageState extends State<SignupPage> {
                       }
                       return null;
                     },
-                    textEditingController: controller.lname,
+                    textEditingController: _lastnameController,
                     hintText: "Last Name*",
                     textInputType: TextInputType.emailAddress,
                     action: TextInputAction.next,
@@ -185,7 +185,7 @@ class _SignupPageState extends State<SignupPage> {
                       }
                       return null;
                     },
-                    textEditingController: controller.phone,
+                    textEditingController: _mobilecontroller,
                     hintText: "Mobile Number*",
                     textInputType: TextInputType.number,
                     action: TextInputAction.next,
@@ -200,7 +200,7 @@ class _SignupPageState extends State<SignupPage> {
                       }
                       return null;
                     },
-                    textEditingController: controller.pass,
+                    textEditingController: _passController,
                     hintText: "Password",
                     textInputType: TextInputType.emailAddress,
                     action: TextInputAction.next,
@@ -224,22 +224,22 @@ class _SignupPageState extends State<SignupPage> {
                       onaction: () {
                         if (formGlobalKey.currentState!.validate()) {
                           if (_isChecked == true) {
-                            final user = UserModel(
-                                email: controller.email.text.trim(),
-                                fname: controller.fname.text.toString(),
-                                lname: controller.lname.text.trim(),
-                                pass: controller.pass.text.trim(),
-                                phone: controller.phone.text.trim());
-                            SignupController.instance.registeruser(
-                                controller.email.text.trim(),
-                                controller.pass.text.trim());
-                            // FirebaseAuthMethod().signupUser(
-                            //     email: _emailController.text,
-                            //     fname: _fnameController.text,
-                            //     lname: _lastnameController.text,
-                            //     mobilenum: _mobilecontroller.text,
-                            //     pass: _passController.text,
-                            //     file: _image!);
+                            // final user = UserModel(
+                            //     email: controller.email.text.trim(),
+                            //     fname: controller.fname.text.toString(),
+                            //     lname: controller.lname.text.trim(),
+                            //     pass: controller.pass.text.trim(),
+                            //     phone: controller.phone.text.trim());
+                            // SignupController.instance.registeruser(
+                            //     controller.email.text.trim(),
+                            //     controller.pass.text.trim());
+                            FirebaseAuthMethod().signupUser(
+                                email: _emailController.text,
+                                fname: _fnameController.text,
+                                lname: _lastnameController.text,
+                                mobilenum: _mobilecontroller.text,
+                                pass: _passController.text,
+                                file: _image!);
                             Get.to(() => Home());
                             _showetoast("Signup Successfully");
                           } else
@@ -294,13 +294,13 @@ class _SignupPageState extends State<SignupPage> {
                       ),
                       GestureDetector(
                         onTap: () async {
-                          // User? user =
-                          //     await FirebaseAuthMethod().signInWithGoogle();
-                          // if (user != null) {
-                          //   await FirebaseAuthMethod().addUserToFirestore(user);
-                          // }
+                          User? user =
+                              await FirebaseAuthMethod().signInWithGoogle();
+                          if (user != null) {
+                            await FirebaseAuthMethod().addUserToFirestore(user);
+                          }
 
-                          //FirebaseAuthMethod().signInWithGoogle(context);
+                          FirebaseAuthMethod().signInWithGoogle();
                         },
                         child: Image(
                             fit: BoxFit.cover,

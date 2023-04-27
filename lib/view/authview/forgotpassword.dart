@@ -77,7 +77,7 @@ class _ForgitPasswordState extends State<ForgitPassword> {
                     borderrad: 25,
                     onaction: () {
                       if (formGlobalKey.currentState!.validate()) {
-                        //  FirebaseAuthMethod().resetPassword(_email.text);
+                        FirebaseAuthMethod().resetPassword(_email.text);
                         Get.to(() => Home());
                         _showetoast("Details Send to your email");
                       } else
