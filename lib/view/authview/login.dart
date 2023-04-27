@@ -175,10 +175,10 @@ class _LoginPageState extends State<LoginPage> {
                     borderrad: 25,
                     onaction: () {
                       if (formGlobalKey.currentState!.validate()) {
-                        FirebaseAuthMethod().loginuser(
-                          email: _emailController.text,
-                          pass: _passController.text,
-                        );
+                        // FirebaseAuthMethod().loginuser(
+                        //   email: _emailController.text,
+                        //   pass: _passController.text,
+                        // );
                         Get.to(() => Home());
                         _showetoast("Sigin Successfully");
                       } else

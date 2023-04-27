@@ -1,21 +1,21 @@
-import 'package:flutter/widgets.dart';
-import 'package:flutter/foundation.dart';
-import 'package:mandala/models/usermodel.dart';
+// import 'package:flutter/widgets.dart';
+// import 'package:flutter/foundation.dart';
+// import 'package:mandala/models/usermodel.dart';
 
-import '../models/authmodels.dart';
+// import '../models/authmodels.dart';
 
-class UserProvider with ChangeNotifier {
-  UserModel? _user;
+// class UserProvider with ChangeNotifier {
+//   UserModel? _user;
 
-  final FirebaseAuthMethod _authMethods = FirebaseAuthMethod();
+//   final FirebaseAuthMethod _authMethods = FirebaseAuthMethod();
 
-  get getUser {
-    return _user;
-  }
+//   get getUser {
+//     return _user;
+//   }
 
-  Future<void> refreshUser() async {
-    UserModel user = await _authMethods.getUserDetails();
-    _user = user;
-    notifyListeners();
-  }
-}
+//   Future<void> refreshUser() async {
+//     UserModel user = await _authMethods.getUserDetails();
+//     _user = user;
+//     notifyListeners();
+//   }
+// }
