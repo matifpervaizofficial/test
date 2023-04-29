@@ -67,4 +67,17 @@ class UserModel {
       'photo ': photourl
     };
   }
+
+  //map for fecthing users from firestore
+  factory UserModel.fromSnapshot(
+      DocumentSnapshot<Map<String, dynamic>> document) {
+    final data = document.data()!;
+    return UserModel(
+        id: document.id,
+        email: data['Email'],
+        fname: data['First Name'],
+        lname: data['last name'],
+        pass: data['pass'],
+        phone: data['Phone']);
+  }
 }

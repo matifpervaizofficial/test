@@ -6,7 +6,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:mandala/models/authmodels.dart';
+import 'package:mandala/methods/authmodels.dart';
 import 'package:mandala/models/usermodel.dart';
 import 'package:mandala/view/dashboard.dart';
 import 'package:mandala/widgets/pickimages.dart';
@@ -140,7 +140,7 @@ class _SignupPageState extends State<SignupPage> {
                     },
                     //textEditingController: controller.fname,
 
-                    textEditingController: _fnameController,
+                    textEditingController: controller.fname,
                     hintText: "First Name*",
                     textInputType: TextInputType.emailAddress,
                     action: TextInputAction.next,
@@ -155,7 +155,7 @@ class _SignupPageState extends State<SignupPage> {
                       }
                       return null;
                     },
-                    textEditingController: _lastnameController,
+                    textEditingController: controller.lname,
                     hintText: "Last Name*",
                     textInputType: TextInputType.emailAddress,
                     action: TextInputAction.next,
@@ -172,7 +172,7 @@ class _SignupPageState extends State<SignupPage> {
                       }
                       return null;
                     },
-                    textEditingController: _emailController,
+                    textEditingController: controller.email,
                     hintText: "Email Address*",
                     textInputType: TextInputType.emailAddress,
                     action: TextInputAction.next,
@@ -187,7 +187,7 @@ class _SignupPageState extends State<SignupPage> {
                       }
                       return null;
                     },
-                    textEditingController: _mobilecontroller,
+                    textEditingController: controller.phone,
                     hintText: "Mobile Number*",
                     textInputType: TextInputType.number,
                     action: TextInputAction.next,
@@ -202,7 +202,7 @@ class _SignupPageState extends State<SignupPage> {
                       }
                       return null;
                     },
-                    textEditingController: _passController,
+                    textEditingController: controller.pass,
                     hintText: "Password",
                     textInputType: TextInputType.emailAddress,
                     action: TextInputAction.next,
@@ -232,6 +232,9 @@ class _SignupPageState extends State<SignupPage> {
                                 lname: controller.lname.text.trim(),
                                 pass: controller.pass.text.trim(),
                                 phone: controller.phone.text.trim());
+                            SignupController.instance.registeruser(
+                                controller.email.text.trim(),
+                                controller.pass.text.trim());
                             SignupController.instance.createUser(user
                                 // controller.email.text.trim(),
                                 // controller.pass.text.trim()

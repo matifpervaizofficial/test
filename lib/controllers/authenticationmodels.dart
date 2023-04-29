@@ -10,13 +10,13 @@ import '../view/splash.dart';
 
 class AuthRepo extends GetxController {
   static AuthRepo get instance => Get.put(AuthRepo());
-  final _auth = FirebaseAuth.instance;
-  late final Rx<User?> _firebaseUser;
+  final auth = FirebaseAuth.instance;
+  late Rx<User?> firebaseUser;
   @override
   void onready() {
-    _firebaseUser = Rx<User?>(_auth.currentUser);
-    _firebaseUser.bindStream(_auth.userChanges());
-    ever(_firebaseUser, _setinitialScreen);
+    firebaseUser = Rx<User?>(auth.currentUser);
+    firebaseUser.bindStream(auth.userChanges());
+    ever(firebaseUser, _setinitialScreen);
   }
 
   _setinitialScreen(User? user) {
@@ -27,8 +27,8 @@ class AuthRepo extends GetxController {
 
   Future<void> createUserWithEmailAndPassword(String email, String pass) async {
     try {
-      await _auth.createUserWithEmailAndPassword(email: email, password: pass);
-      _firebaseUser.value != null
+      await auth.createUserWithEmailAndPassword(email: email, password: pass);
+      firebaseUser.value != null
           ? Get.offAll(() => const Home())
           : Get.offAll(() => SplashScreen());
     } on FirebaseAuthException catch (e) {
@@ -40,10 +40,10 @@ class AuthRepo extends GetxController {
 
   Future<void> loginWithEmailAndPassword(String email, String pass) async {
     try {
-      await _auth.signInWithEmailAndPassword(email: email, password: pass);
+      await auth.signInWithEmailAndPassword(email: email, password: pass);
     } on FirebaseAuthException catch (e) {
     } catch (_) {}
   }
 
-  Future<void> logout() async => await _auth.signOut();
+  Future<void> logout() async => await auth.signOut();
 }

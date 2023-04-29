@@ -1,11 +1,12 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:mandala/models/authmodels.dart';
+import 'package:mandala/methods/authmodels.dart';
 import 'package:mandala/view/profile/profileview.dart';
 
 import 'colorpannel/fillcolor.dart';
-import 'createpannel/create.dart';
+import '../widgets/create.dart';
+import 'createpannel/drawpage.dart';
 import 'library/mylibrary.dart';
 
 class Home extends StatefulWidget {
@@ -25,7 +26,7 @@ class _HomeState extends State<Home> {
   final List<Widget> pages = [
     Coloring(),
     ProfileView(),
-    Create(),
+    DrawingPage(),
     MyLibrary(),
   ];
   List<int> listofpages = [];

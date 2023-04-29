@@ -12,7 +12,7 @@ import 'package:mandala/widgets/mybutton.dart';
 import 'package:mandala/widgets/textformfield.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../models/authmodels.dart';
+import '../../methods/authmodels.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

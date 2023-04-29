@@ -8,6 +8,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:mandala/providers/userprovider.dart';
 import 'package:mandala/view/authview/signup.dart';
+import 'package:mandala/view/createpannel/drawpage.dart';
+import 'package:mandala/widgets/create.dart';
+import 'package:mandala/view/profile/profileview.dart';
 import 'package:mandala/view/settings/settingsscreen.dart';
 import 'package:mandala/view/authview/login.dart';
 import 'package:mandala/view/colorpannel/animal.dart';
@@ -51,7 +54,7 @@ class MyApp extends StatelessWidget {
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.active) {
             if (snapshot.hasData) {
-              return SignupPage();
+              return DrawingPage();
             }
           } else if (snapshot.hasError) {
             return const Center(
@@ -61,7 +64,7 @@ class MyApp extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           }
-          return LoginPage();
+          return DrawingPage();
         },
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
-import 'package:mandala/models/authmodels.dart';
+import 'package:mandala/methods/authmodels.dart';
 import 'package:mandala/utils/mycolors.dart';
 import 'package:mandala/view/authview/login.dart';
 import 'package:mandala/widgets/mybutton.dart';
